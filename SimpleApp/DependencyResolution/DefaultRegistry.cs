@@ -15,10 +15,13 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using SimpleApp.Core.Services;
+
 namespace SimpleApp.DependencyResolution {
+    using Core.Concrete;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
-	
+
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
 
@@ -30,6 +33,7 @@ namespace SimpleApp.DependencyResolution {
 					scan.With(new ControllerConvention());
                 });
             //For<IExample>().Use<Example>();
+            For<ITestMessage>().Use<PrintMessage>();
         }
 
         #endregion
