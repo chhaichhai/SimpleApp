@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SimpleApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -13,14 +14,15 @@ namespace SimpleApp.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Insurance()
         {
+
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Transplant()
         {
             ViewBag.Message = "Your contact page.";
 
