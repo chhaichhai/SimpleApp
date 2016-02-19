@@ -7,7 +7,7 @@
     <ProjectGuid>{B8F8BD81-94DE-42F6-9293-BC73270E48C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataLayer</RootNamespace>
+    <RootNamespace>SimpleApp.DataLayer</RootNamespace>
     <AssemblyName>SimpleApp.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -74,6 +74,7 @@
       <DependentUpon>201602190123548_AddedTestData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Insurance.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

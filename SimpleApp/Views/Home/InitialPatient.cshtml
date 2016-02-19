@@ -5,65 +5,65 @@
 <div class="container">
     <h3 class="bg-primary">New Patient</h3>
     <div id="big-form" class="well auth-box">
-        
+
         <form class="form-horizontal">
-                <div class="container form-group">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="control-label" for="firstname">First Name </label>
-                            <input id="firstname" name="firstname" placeholder="First Name" class="form-control input-xs" type="text">
-                        </div>
+            <div class="container form-group">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="control-label" for="firstname">First Name </label>
+                        <input id="firstname" name="firstname" placeholder="First Name" class="form-control input-xs" type="text">
+                    </div>
 
-                        <div class="col-md-3">
-                            <label class="control-label" for="lastname">Last Name </label>
-                            <input id="lastname" name="lastname" placeholder="Last Name" class="form-control input-xs" type="text">
-                        </div>
+                    <div class="col-md-3">
+                        <label class="control-label" for="lastname">Last Name </label>
+                        <input id="lastname" name="lastname" placeholder="Last Name" class="form-control input-xs" type="text">
+                    </div>
 
-                        <div class="col-md-2">
-                            <label class="control-label" for="dob">Date of Birth </label>
-                            <input id="dob" name="dob" placeholder="MM/DD/YYYY" class="form-control input-xs" type="text">
-                        </div>
+                    <div class="col-md-2">
+                        <label class="control-label" for="dob">Date of Birth </label>
+                        <input id="dob" name="dob" placeholder="MM/DD/YYYY" class="form-control input-xs" type="text">
+                    </div>
 
-                        <div class="col-md-2">
-                            <label class="control-label" for="selectbasic">Sex</label>
-                            <div class="">
-                                <select id="selectbasic" name="selectbasic" class="form-control">
-                                    <option value="1">Male</option>
-                                    <option value="2">Female</option>
-                                    <option value="2">Unknown</option>
-                                </select>
-                            </div>
+                    <div class="col-md-2">
+                        <label class="control-label" for="selectbasic">Sex</label>
+                        <div class="">
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="2">Unknown</option>
+                            </select>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="container form-group">
-                    <div class="row">
-                        <div class="control-group col-md-3">
-                            <label class="control-label">
-                                Does the patient have insurance?
-                            </label>
-                            <div class="container">
-                                <div class="radio">
-                                    <label for="radios-0">
-                                        <input name="radios" id="radios-0" value="1" type="radio">
-                                        Yes
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="radios-1">
-                                        <input name="radios" id="radios-1" value="2" type="radio">
-                                        No
-                                    </label>
-                                </div>
+            <div class="container form-group">
+                <div class="row">
+                    <div class="control-group col-md-3">
+                        <label class="control-label">
+                            Does the patient have insurance?
+                        </label>
+                        <div class="container">
+                            <div class="radio">
+                                <label for="radios-0">
+                                    <input name="radios" id="radios-0" value="1" type="radio">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radios-1">
+                                    <input name="radios" id="radios-1" value="2" type="radio">
+                                    No
+                                </label>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <label class="control-label" for="insurancename">Insurance Name </label>
-                            <input id="insurancename" name="insurancename" placeholder="Insurance Name" class="form-control input-xs" type="text">
-                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="control-label" for="insurancename">Insurance Name </label>
+                        <input id="insurancename" name="insurancename" placeholder="Insurance Name" class="form-control input-xs" type="text">
                     </div>
                 </div>
+            </div>
 
             <div class="container form-group">
                 <div class="row">
@@ -146,3 +146,90 @@
     </div>
     <div class="clearfix"></div>
 </div>
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <h3 class="bg-primary">New Patient</h3>
+            <div id="big-form" class="well auth-box">
+                <hr/>
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DOB, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DOB, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.DOB, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Sex, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Sex, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.Sex, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Insurance, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Insurance)
+                            @Html.ValidationMessageFor(model => model.Insurance, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CaliforniaResident, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.CaliforniaResident)
+                            @Html.ValidationMessageFor(model => model.CaliforniaResident, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmploymentStatus, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EmploymentStatus, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.EmploymentStatus, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

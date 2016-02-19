@@ -21,10 +21,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Transplant Center", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+                @Html.ActionLink("Transplant Center", "Index", "Patients", new {area = ""}, new {@class = "navbar-brand"})
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Patients", "Index", "Patients")</li>
                     <li>@Html.ActionLink("New Patient", "Create", "Patients")</li>
                     <li>@Html.ActionLink("Insurance", "Insurance", "Home")</li>
                     <li>@Html.ActionLink("Transplant", "Transplant", "Home")</li>

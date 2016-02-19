@@ -1,11 +1,8 @@
+using System.Data.Entity;
 using SimpleApp.DataLayer.Model;
 
 namespace SimpleApp.DataLayer
 {
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
-
     public class SimpleApp : DbContext
     {
         // Your context has been configured to use a 'SimpleApp' connection string from your application's 
