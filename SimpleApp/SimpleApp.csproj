@@ -94,13 +94,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -220,6 +224,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -297,6 +302,11 @@
     <Content Include="Views\Home\InitialPatient.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Home\Insurance.cshtml" />
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +323,10 @@
     <ProjectReference Include="..\SimpleApp.Core\SimpleApp.Core.csproj">
       <Project>{BF3E1103-B91F-432D-B7C3-FDFB441DAB70}</Project>
       <Name>SimpleApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleApp.Data\SimpleApp.DataLayer.csproj">
+      <Project>{b8f8bd81-94de-42f6-9293-bc73270e48c5}</Project>
+      <Name>SimpleApp.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,8 +1,6 @@
 namespace SimpleApp.DependencyResolution {
     using System.Web;
 
-    using SimpleApp.App_Start;
-
     using StructureMap.Web.Pipeline;
 
     public class StructureMapScopeModule : IHttpModule {
