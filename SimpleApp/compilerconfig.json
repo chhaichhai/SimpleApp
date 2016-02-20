@@ -1,0 +1,22 @@
+﻿[
+  {
+    "outputFile": "Content/shared.css",
+    "inputFile": "Content/shared.scss"
+  },
+  {
+    "outputFile": "Content/variables.css",
+    "inputFile": "Content/variables.less"
+  },
+  {
+    "outputFile": "Content/sb-admin-2.css",
+    "inputFile": "Content/sb-admin-2.less"
+  },
+  {
+    "outputFile": "Content/mixins.css",
+    "inputFile": "Content/mixins.less"
+  },
+  {
+    "outputFile": "Content/sharedLess.css",
+    "inputFile": "Content/sharedLess.less"
+  }
+]

@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<SimpleApp.DataLayer.Model.Patient>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{
+    ViewBag.Title = "Index";
+}
 <h3>Patients</h3>
 
 <table class="table">
@@ -34,7 +37,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <script> var itemId = item.Id </script>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>

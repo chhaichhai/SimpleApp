@@ -26,12 +26,12 @@ namespace SimpleApp.DependencyResolution {
         #region Constructors and Destructors
 
         public DefaultRegistry() {
-            Scan(
-                scan => {
-                    scan.TheCallingAssembly();
-                    scan.WithDefaultConventions();
-					scan.With(new ControllerConvention());
-                });
+     //       Scan(
+     //           scan => {
+     //               scan.TheCallingAssembly();
+     //               scan.WithDefaultConventions();
+					//scan.With(new ControllerConvention());
+     //           });
             //For<IExample>().Use<Example>();
             For<ITestMessage>().Use<PrintMessage>();
         }

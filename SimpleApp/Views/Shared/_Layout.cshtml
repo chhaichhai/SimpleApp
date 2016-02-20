@@ -11,6 +11,9 @@
 <body>
 
     @Scripts.Render("~/bundles/jquery")
+    <script src="~/signalr/hubs"></script>
+    <script src="~/scripts/stathub.js"></script>
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,6 +32,7 @@
                     <li>@Html.ActionLink("New Patient", "Create", "Patients")</li>
                     <li>@Html.ActionLink("Insurance", "Insurance", "Home")</li>
                     <li>@Html.ActionLink("Transplant", "Transplant", "Home")</li>
+                    <li>@Html.ActionLink("Dashboard", "Index", "Message")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
