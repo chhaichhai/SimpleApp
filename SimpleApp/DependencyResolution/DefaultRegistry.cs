@@ -34,6 +34,7 @@ namespace SimpleApp.DependencyResolution {
      //           });
             //For<IExample>().Use<Example>();
             For<ITestMessage>().Use<PrintMessage>();
+            For<IDbContext>().Use<PatientDbContext>();
         }
 
         #endregion

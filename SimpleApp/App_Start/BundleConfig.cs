@@ -9,7 +9,7 @@ namespace SimpleApp
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"
+                        "~/lib/jquery/dist/jquery.js"
                         , "~/Scripts/jquery.signalR-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -21,11 +21,12 @@ namespace SimpleApp
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/lib/bootstrap/dist/js/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/lib/bootstrap/dist/css/bootstrap.css",
+                      "~/lib/Font-Awesome/css/font-awesome.css",
                       "~/Content/shared.css",
                       "~/Content/sharedLess.css",
                       "~/Content/mexins.css",

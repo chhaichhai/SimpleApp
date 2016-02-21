@@ -4,11 +4,12 @@
     ViewBag.Title = "New Patient";
 }
 
+<h1 class="page-header">New Patient</h1>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <div class="container">
-        <h3 class="bg-primary">New Patient</h3>
         <div id="big-form" class="well auth-box">
 
             <form class="form-horizontal">
@@ -38,8 +39,10 @@
                                 <select id="selectbasic" name="selectbasic" class="form-control">
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
-                                    <option value="2">Unknown</option>
+                                    <option value="3">Unknown</option>
                                 </select>
+                                @*@Html.DropDownListFor(model => model.Sex, new SelectList("Male", "Female", "Unknown"), "--Select--"))
+                                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })*@
                             </div>
                         </div>
                     </div>
@@ -68,14 +71,14 @@
                     </div>
                 </div>
 
-                <div class="container form-group">
+                @*<div class="container form-group">
                     <div class="row">
                         <div class="control-group col-md-5">
                             <label class="control-label" for="insurancename">Insurance Name </label>
                             <input id="insurancename" name="insurancename" placeholder="Insurance Name" class="form-control input-xs" type="text">
                         </div>
                     </div>
-                </div>
+                </div>*@
 
                 <div class="container form-group">
                     <div class="row">
@@ -100,29 +103,7 @@
 
                 @*<div class="container form-group">
                     <div class="row">
-                        <div class="control-group  col-md-5">
-                            <label class="control-label">Extra features</label>
-                            <div class="container">
-                                <div class="checkbox">
-                                    <label for="checkboxes-0">
-                                        <input name="checkboxes" id="checkboxes-0" value="1" type="checkbox">
-                                        Paper plains
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label for="checkboxes-1">
-                                        <input name="checkboxes" id="checkboxes-1" value="2" type="checkbox">
-                                        Iron man
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
-
-                <div class="container form-group">
-                    <div class="row">
-                        <div class="control-group  col-md-5">
+                        <div class="control-group col-md-5">
                             <label class=" control-label">Is patient employed?</label>
                             <div class="container">
                                 <label class="checkbox-inline" for="checkboxes-2">
@@ -140,22 +121,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
 
-                <div class="container form-group">
-                    <div class="row">
-                        <div class="control-group col-md-12">
-                            <label class="control-label" for="comment">Comment</label>
-                            <div class="container">
-                                <textarea class="form-control" id="comment" name="comment"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </form>
         </div>
 
-        <div class="form-actions col-md-offset-5">
+        <div class="form-actions col-xs-offset-2 col-md-offset-5">
             <button id="submit" type="submit" value="Create" class="btn btn-primary">Save changes</button>
             <input type="button" value="Cancel" class="btn" onclick="location.href='@Url.Action("Index","Patients")';" />
         </div>
@@ -166,91 +137,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-
-
-
-@*@using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <div class="container">
-            <h3 class="bg-primary">New Patient</h3>
-            <div id="big-form" class="well auth-box">
-                <hr/>
-                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.LastName, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.DOB, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.DOB, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.DOB, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Sex, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Sex, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.Sex, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Insurance, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.Insurance)
-                            @Html.ValidationMessageFor(model => model.Insurance, "", new {@class = "text-danger"})
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CaliforniaResident, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.CaliforniaResident)
-                            @Html.ValidationMessageFor(model => model.CaliforniaResident, "", new {@class = "text-danger"})
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.EmploymentStatus, htmlAttributes: new {@class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.EmploymentStatus, new {htmlAttributes = new {@class = "form-control"}})
-                        @Html.ValidationMessageFor(model => model.EmploymentStatus, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@

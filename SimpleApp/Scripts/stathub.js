@@ -6,12 +6,19 @@
         $('#panelHead').append('<div><strong>' + count + '</strong> has joined the page. <div>');
     };
 
-    myhub.client.loadStatNumber = function (count) {
-        $('#counter').text(count);
+    myhub.client.loadPatientStatNumber = function (count) {
+        $('#patientCount').text(count);
+    };
+
+    myhub.client.loadDonorStatNumber = function (count) {
+        $('#donorCount').text(count);
+        $('#transplantCount').text(count);
+
     };
 
     $.connection.hub.start().done(function () {
         myhub.server.getPatientStat();
+        myhub.server.getDonorStat();
     });
 
 });

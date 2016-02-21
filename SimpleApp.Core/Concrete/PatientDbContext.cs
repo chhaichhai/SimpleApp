@@ -20,9 +20,9 @@ namespace SimpleApp.Core.Concrete
             _patients = db.Patients;
         }
 
-        public List<Patient> GetDatabase()
+        public int GetRecordsCount()
         {
-            return _patients.ToList();
+            return _patients.ToList().Count();
         }
     }
 }
