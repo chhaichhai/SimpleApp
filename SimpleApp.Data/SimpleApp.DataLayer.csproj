@@ -81,6 +81,18 @@
     <Compile Include="Migrations\201602210222348_InitialCreation.Designer.cs">
       <DependentUpon>201602210222348_InitialCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602221826283_ModifiedSexEnumType.cs" />
+    <Compile Include="Migrations\201602221826283_ModifiedSexEnumType.Designer.cs">
+      <DependentUpon>201602221826283_ModifiedSexEnumType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602221912391_AddedatientAuditLog.cs" />
+    <Compile Include="Migrations\201602221912391_AddedatientAuditLog.Designer.cs">
+      <DependentUpon>201602221912391_AddedatientAuditLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602222017385_AddedDonorAuditLog.cs" />
+    <Compile Include="Migrations\201602222017385_AddedDonorAuditLog.Designer.cs">
+      <DependentUpon>201602222017385_AddedDonorAuditLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Donor.cs" />
     <Compile Include="Model\Insurance.cs" />
@@ -96,6 +108,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201602210222348_InitialCreation.resx">
       <DependentUpon>201602210222348_InitialCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602221826283_ModifiedSexEnumType.resx">
+      <DependentUpon>201602221826283_ModifiedSexEnumType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602221912391_AddedatientAuditLog.resx">
+      <DependentUpon>201602221912391_AddedatientAuditLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602222017385_AddedDonorAuditLog.resx">
+      <DependentUpon>201602222017385_AddedDonorAuditLog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

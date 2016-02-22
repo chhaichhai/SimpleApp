@@ -64,7 +64,7 @@
                 <td>
                     <input type="button" value="Edit" id=itemId class="btn btn-sm btn-success" onclick="location.href = '@Url.Action("Edit", "Patients", new {@id = item.Id})';" /> |
                     <input type="button" value="Details" id=itemId class="btn btn-sm btn-info" onclick="location.href = '@Url.Action("Details", "Patients", new {@id = item.Id})';" /> |
-                    <input type="button" value="Delete" id=itemId class="btn btn-sm btn-danger" onclick="location.href = '@Url.Action("Delete", "Patients", new {@id = item.Id})';" />
+                    <input type="button" value="Delete" id=itemId class="btn btn-sm btn-danger" onclick="location.href = '@Url.Action("Delete", "Patients", new {@id = item.Id})';"/> 
                 </td>
             </tr>
         }

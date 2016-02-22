@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using TrackerEnabledDbContext.Common.Models;
 
 namespace SimpleApp.DataLayer.Model
 {
@@ -19,7 +21,7 @@ namespace SimpleApp.DataLayer.Model
         public string Hospital { get; set; }
         [DisplayName("Date of Birth")]
         public string DOB { get; set; }
-        public string Sex { get; set; }
+        public SexType Sex { get; set; }
         [Required]
         [DisplayName("Organ Type")]
         public string OrganType { get; set; }
@@ -29,5 +31,7 @@ namespace SimpleApp.DataLayer.Model
         [DataType(DataType.MultilineText)]
         [MaxLength(30)]
         public string Comments { get; set; }
+
+        public virtual List<AuditLog> AuditLogs { get; set; }
     }
 }

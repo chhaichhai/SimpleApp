@@ -32,6 +32,9 @@ namespace SimpleApp.Controllers
             {
                 return HttpNotFound();
             }
+
+            patient.AuditLogs = db.AuditLog.Where(i => i.RecordId == patient.Id.ToString()).OrderByDescending(x => x.EventDateUTC).ToList();
+
             return View(patient);
         }
 

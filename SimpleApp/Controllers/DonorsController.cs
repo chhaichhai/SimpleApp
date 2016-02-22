@@ -34,6 +34,8 @@ namespace SimpleApp.Controllers
             {
                 return HttpNotFound();
             }
+            donor.AuditLogs = db.AuditLog.Where(i => i.RecordId == donor.Id.ToString()).OrderByDescending(x => x.EventDateUTC).ToList();
+
             return View(donor);
         }
 

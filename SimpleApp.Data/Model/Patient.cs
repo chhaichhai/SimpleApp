@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using TrackerEnabledDbContext.Common.Models;
 
 namespace SimpleApp.DataLayer.Model
 {
@@ -24,6 +27,8 @@ namespace SimpleApp.DataLayer.Model
         public bool CaliforniaResident { get; set; }
         [DisplayName("Employment Status")]
         public string EmploymentStatus { get; set; }
+        [NotMapped]
+        public virtual List<AuditLog> AuditLogs { get; set; }
     }
 
     public enum SexType
