@@ -34,15 +34,10 @@
                         </div>
 
                         <div class="col-md-2">
-                            <label class="control-label" for="selectbasic">Sex</label>
-                            <div class="">
-                                <select id="selectbasic" name="selectbasic" class="form-control">
-                                    <option value="1">Male</option>
-                                    <option value="2">Female</option>
-                                    <option value="3">Unknown</option>
-                                </select>
-                                @*@Html.DropDownListFor(model => model.Sex, new SelectList("Male", "Female", "Unknown"), "--Select--"))
-                                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })*@
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Sex, htmlAttributes: new { @for = "SexTypeDropdown" })
+                                @Html.EnumDropDownListFor(model => model.Sex, htmlAttributes: new { @class = "form-control", @id = "SexTypeDropdown" })
+                                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>

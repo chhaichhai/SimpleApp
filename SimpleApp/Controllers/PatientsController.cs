@@ -48,6 +48,7 @@ namespace SimpleApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName,DOB,Sex,Insurance,CaliforniaResident,EmploymentStatus")] Patient patient)
         {
+            //throw new NullReferenceException();
             if (ModelState.IsValid)
             {
                 db.Patients.Add(patient);

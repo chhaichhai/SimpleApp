@@ -77,33 +77,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201602182030583_InitialCreation.cs" />
-    <Compile Include="Migrations\201602182030583_InitialCreation.Designer.cs">
-      <DependentUpon>201602182030583_InitialCreation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602182033034_AddedPatientTable.cs" />
-    <Compile Include="Migrations\201602182033034_AddedPatientTable.Designer.cs">
-      <DependentUpon>201602182033034_AddedPatientTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602200316274_AddedDonorTable.cs" />
-    <Compile Include="Migrations\201602200316274_AddedDonorTable.Designer.cs">
-      <DependentUpon>201602200316274_AddedDonorTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602202323191_ModifiedTables.cs" />
-    <Compile Include="Migrations\201602202323191_ModifiedTables.Designer.cs">
-      <DependentUpon>201602202323191_ModifiedTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602210032485_Something.cs" />
-    <Compile Include="Migrations\201602210032485_Something.Designer.cs">
-      <DependentUpon>201602210032485_Something.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602210034263_AddedMaxLength.cs" />
-    <Compile Include="Migrations\201602210034263_AddedMaxLength.Designer.cs">
-      <DependentUpon>201602210034263_AddedMaxLength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602210154177_ChangedSexType.cs" />
-    <Compile Include="Migrations\201602210154177_ChangedSexType.Designer.cs">
-      <DependentUpon>201602210154177_ChangedSexType.cs</DependentUpon>
+    <Compile Include="Migrations\201602210222348_InitialCreation.cs" />
+    <Compile Include="Migrations\201602210222348_InitialCreation.Designer.cs">
+      <DependentUpon>201602210222348_InitialCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Donor.cs" />
@@ -118,26 +94,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602182030583_InitialCreation.resx">
-      <DependentUpon>201602182030583_InitialCreation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602182033034_AddedPatientTable.resx">
-      <DependentUpon>201602182033034_AddedPatientTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602200316274_AddedDonorTable.resx">
-      <DependentUpon>201602200316274_AddedDonorTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602202323191_ModifiedTables.resx">
-      <DependentUpon>201602202323191_ModifiedTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602210032485_Something.resx">
-      <DependentUpon>201602210032485_Something.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602210034263_AddedMaxLength.resx">
-      <DependentUpon>201602210034263_AddedMaxLength.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602210154177_ChangedSexType.resx">
-      <DependentUpon>201602210154177_ChangedSexType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602210222348_InitialCreation.resx">
+      <DependentUpon>201602210222348_InitialCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
