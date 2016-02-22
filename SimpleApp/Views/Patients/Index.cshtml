@@ -30,9 +30,9 @@
             <th>
                 California Resident
             </th>
-            <th>
+            @*<th>
                 Employment Status
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -58,9 +58,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.CaliforniaResident)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.EmploymentStatus)
-                </td>
+                </td>*@
                 <td>
                     <input type="button" value="Edit" id=itemId class="btn btn-sm btn-success" onclick="location.href = '@Url.Action("Edit", "Patients", new {@id = item.Id})';" /> |
                     <input type="button" value="Details" id=itemId class="btn btn-sm btn-info" onclick="location.href = '@Url.Action("Details", "Patients", new {@id = item.Id})';" /> |

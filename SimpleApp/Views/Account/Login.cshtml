@@ -7,7 +7,8 @@
 @section head{
     <style type="text/css">
         body {
-            background: url('http://uniquemedtravel.com/Files/MedicalServices/Organ-Transplantation/image-02.jpg') no-repeat center center fixed;
+            /*background: url('http://uniquemedtravel.com/Files/MedicalServices/Organ-Transplantation/image-02.jpg') no-repeat center center fixed;*/
+            background: url('../../Content/img/transplantbackground.jpg') no-repeat center center fixed;
             background-size: cover;
         }
     </style>
@@ -41,7 +42,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-10">
                         <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
+                            &nbsp;&nbsp;&nbsp;&nbsp; @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe, new {@style = "color: #ffffff; font-weight: 400;"})
                         </div>
                     </div>

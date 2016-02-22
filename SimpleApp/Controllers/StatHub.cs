@@ -12,24 +12,25 @@ namespace SimpleApp.Controllers
     [Authorize]
     public class StatHub : Hub
     {
-        public void GetPatientStat()
-        {
-            IDbContext patientDb = new PatientDbContext();
-            Clients.All.loadStatNumber(patientDb.GetRecordsCount());
-        }
-        public void GetDonorStat()
-        {
-            IDbContext donorDb = new DonorDbContext();
-            Clients.All.loadStatNumber(donorDb.GetRecordsCount());
-        }
+        //public void GetPatientStat()
+        //{
+        //    IDbContext patientDb = new PatientDbContext();
+        //    Clients.All.loadStatNumber(patientDb.GetRecordsCount());
+        //}
+        //public void GetDonorStat()
+        //{
+        //    IDbContext donorDb = new DonorDbContext();
+        //    Clients.All.loadStatNumber(donorDb.GetRecordsCount());
+        //}
 
         public override Task OnConnected()
         {
             IDbContext patientDb = new PatientDbContext();
             IDbContext donorDb = new DonorDbContext();
+            var username = Context.User.Identity.Name;
 
-            Clients.All.loadPatientStatNumber(patientDb.GetRecordsCount());
-            Clients.All.loadDonorStatNumber(donorDb.GetRecordsCount());
+            Clients.All.loadPatientStatNumber(username, patientDb.GetRecordsCount());
+            Clients.All.loadDonorStatNumber(username, donorDb.GetRecordsCount());
             return base.OnConnected();
         }
     }

@@ -3,12 +3,17 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="bs-example">
-    <div class="alert alert-warning">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Warning!</strong> There was a problem with your network connection.
-    </div>
-</div>
+
+@*<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 7000);
+</script>*@
+
+<div id="patientnotification" style="padding-top: 1px;"></div>
+<div id="donornotification" style="padding-top: 1px;"></div>
 
 <h1 class="page-header">Dashboard</h1>
 
