@@ -17,9 +17,10 @@ namespace SimpleApp.Core.Concrete
             _donors = db.Donors;
         }
 
+        /// <summary>Return donor's count</summary>
         public int GetRecordsCount()
         {
-            return _donors.ToList().Count;
+            return _donors.Count();
         }
     }
 }

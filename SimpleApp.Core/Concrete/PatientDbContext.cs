@@ -22,7 +22,7 @@ namespace SimpleApp.Core.Concrete
 
         public int GetRecordsCount()
         {
-            return _patients.ToList().Count();
+            return _patients.Count();
         }
     }
 }

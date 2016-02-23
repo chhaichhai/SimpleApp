@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <title>@ViewBag.Title Transplant Center</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -34,6 +34,13 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Patients", "Index", "Patients")</li>
                             <li>@Html.ActionLink("Donors", "Index", "Donors")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <div class="form-group has-feedback">
+                                    <input id="searchcase" type="text" class="form-control" placeholder="Search" />
+                                    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                     <li>@Html.ActionLink("New Patient", "Create", "Patients")</li>

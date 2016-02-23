@@ -2,10 +2,6 @@
     $.connection.hub.logging = true;
     var myhub = $.connection.statHub;
 
-    myhub.client.addCount = function (count) {
-        $('#panelHead').append('<div><strong>' + count + '</strong> has joined the page. <div>');
-    };
-
     //Function to load Patient table's count to the dashboard
     myhub.client.loadPatientStatNumber = function (username, count) {
         if (document.getElementById('patientCount') != null)
@@ -26,7 +22,7 @@
         $('#patientCount').text(count);
 
         window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(".alert").fadeTo(1000, 0).slideUp(1000, function () {
                 $(this).remove();
             });
         }, 4000);
@@ -63,9 +59,5 @@
         //myhub.server.getPatientStat();
         //myhub.server.getDonorStat();
     });
-
-});
-
-$(document).ready(function () {
 
 });

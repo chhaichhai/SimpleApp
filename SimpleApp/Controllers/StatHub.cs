@@ -12,17 +12,6 @@ namespace SimpleApp.Controllers
     [Authorize]
     public class StatHub : Hub
     {
-        //public void GetPatientStat()
-        //{
-        //    IDbContext patientDb = new PatientDbContext();
-        //    Clients.All.loadStatNumber(patientDb.GetRecordsCount());
-        //}
-        //public void GetDonorStat()
-        //{
-        //    IDbContext donorDb = new DonorDbContext();
-        //    Clients.All.loadStatNumber(donorDb.GetRecordsCount());
-        //}
-
         public override Task OnConnected()
         {
             IDbContext patientDb = new PatientDbContext();
