@@ -1,4 +1,5 @@
 ﻿@using SimpleApp.Models
+@using SimpleApp.Ultilities
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
@@ -21,7 +22,7 @@
     <div class="col-md-8 col-md-offset-2">
 
         <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm(Constant.Actions.Login, Constant.Controllers.Account, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -55,7 +56,7 @@
                 <p>
                     <div class="col-md-offset-4 col-md-10">
 
-                        @Html.ActionLink("Register as a new user", "Register")
+                        @Html.ActionLink("Register as a new user", Constant.Actions.Register)
                         </div>
                 </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality

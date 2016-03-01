@@ -1,4 +1,5 @@
-﻿@model SimpleApp.DataLayer.Model.Patient
+﻿@using SimpleApp.Ultilities
+@model SimpleApp.DataLayer.Model.Patient
 
 @{
     ViewBag.Title = "Details";
@@ -95,8 +96,8 @@
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", Constant.Actions.Edit, new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", Constant.Actions.Index)
 </p>
 
 

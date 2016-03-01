@@ -1,11 +1,12 @@
-﻿@model SimpleApp.Models.AddPhoneNumberViewModel
+﻿@using SimpleApp.Ultilities
+@model SimpleApp.Models.AddPhoneNumberViewModel
 @{
     ViewBag.Title = "Phone Number";
 }
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm(Constant.Actions.AddPhoneNumber, Constant.Controllers.Manage, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Add a phone number</h4>

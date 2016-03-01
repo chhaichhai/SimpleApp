@@ -1,5 +1,6 @@
 ﻿@model SimpleApp.Models.ManageLoginsViewModel
 @using Microsoft.Owin.Security
+@using SimpleApp.Ultilities
 @{
     ViewBag.Title = "Manage your external logins";
 }
@@ -31,7 +32,7 @@
                             <td>
                                 @if (ViewBag.ShowRemoveButton)
                                 {
-                                    using (Html.BeginForm("RemoveLogin", "Manage"))
+                                    using (Html.BeginForm(Constant.Actions.RemoveLogin, Constant.Controllers.Manage))
                                     {
                                         @Html.AntiForgeryToken()
                                         <div>
@@ -53,7 +54,7 @@
         }
         if (Model.OtherLogins.Count > 0)
         {
-            using (Html.BeginForm("LinkLogin", "Manage"))
+            using (Html.BeginForm(Constant.Actions.LinkLogin, Constant.Controllers.Manage))
             {
                 @Html.AntiForgeryToken()
                 <div id="socialLoginList">

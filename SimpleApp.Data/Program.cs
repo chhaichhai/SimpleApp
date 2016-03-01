@@ -1,4 +1,6 @@
-﻿namespace SimpleApp.DataLayer
+﻿using Microsoft.AspNet.Identity;
+
+namespace SimpleApp.DataLayer
 {
     class Program
     {

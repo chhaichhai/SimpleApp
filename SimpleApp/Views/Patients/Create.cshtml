@@ -1,4 +1,5 @@
-﻿@model SimpleApp.DataLayer.Model.Patient
+﻿@using SimpleApp.Ultilities
+@model SimpleApp.DataLayer.Model.Patient
 
 @{
     ViewBag.Title = "New Patient";
@@ -123,7 +124,7 @@
 
         <div class="form-actions col-xs-offset-2 col-md-offset-5">
             <button id="submit" type="submit" value="Create" class="btn btn-primary">Save changes</button>
-            <input type="button" value="Cancel" class="btn" onclick="location.href='@Url.Action("Index","Patients")';" />
+            <input type="button" value="Cancel" class="btn" onclick="location.href='@Url.Action(Constant.Actions.Index, Constant.Controllers.Patients)';" />
         </div>
         <div class="clearfix"></div>
     </div>

@@ -1,13 +1,14 @@
 ﻿@using Microsoft.AspNet.Identity
+@using SimpleApp.Ultilities
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm(Constant.Actions.LogOff, Constant.Controllers.Account, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="@Url.Action("Index", "Manage", new {@title = "Manage"})">
+            <a href="@Url.Action(Constant.Actions.Index, Constant.Controllers.Manage, new {@title = "Manage"})">
                 <span class="glyphicon glyphicon-user"></span>
                 Setting
             </a>
@@ -25,13 +26,13 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="@Url.Action("Register", "Account", new {@id = "registerLink"})">
+            <a href="@Url.Action(Constant.Actions.Register, Constant.Controllers.Account, new {@id = "registerLink"})">
                 <span class="glyphicon glyphicon-pencil"> </span>
                 Register
             </a>
         </li>
         <li>
-            <a href="@Url.Action("Login", "Account", new {@id = "loginLink"})">
+            <a href="@Url.Action(Constant.Actions.Login, Constant.Controllers.Account, new {@id = "loginLink"})">
                 <span class="glyphicon glyphicon-log-in"></span>
                 Login
             </a>

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SimpleApp.DataLayer;
 using SimpleApp.DataLayer.Model;
+using SimpleApp.Ultilities;
 
 namespace SimpleApp.Controllers
 {
@@ -56,7 +57,7 @@ namespace SimpleApp.Controllers
             {
                 db.Donors.Add(donor);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(Constant.Actions.Index);
             }
 
             return View(donor);
@@ -88,7 +89,7 @@ namespace SimpleApp.Controllers
             {
                 db.Entry(donor).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(Constant.Actions.Index);
             }
             return View(donor);
         }
@@ -109,14 +110,14 @@ namespace SimpleApp.Controllers
         }
 
         // POST: Donors/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName(Constant.Actions.Delete)]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Donor donor = db.Donors.Find(id);
             db.Donors.Remove(donor);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction(Constant.Actions.Index);
         }
 
         protected override void Dispose(bool disposing)

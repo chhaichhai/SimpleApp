@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using SimpleApp.DataLayer.Model;
+using SimpleApp.Ultilities;
 
 namespace SimpleApp.Controllers
 {
@@ -56,7 +57,7 @@ namespace SimpleApp.Controllers
             {
                 db.Patients.Add(patient);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(Constant.Actions.Index);
             }
 
             return View(patient);
@@ -88,7 +89,7 @@ namespace SimpleApp.Controllers
             {
                 db.Entry(patient).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(Constant.Actions.Index);
             }
             return View(patient);
         }
@@ -109,14 +110,14 @@ namespace SimpleApp.Controllers
         }
 
         // POST: Patients/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName(Constant.Actions.Delete)]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Patient patient = db.Patients.Find(id);
             db.Patients.Remove(patient);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction(Constant.Actions.Index);
         }
 
         protected override void Dispose(bool disposing)
