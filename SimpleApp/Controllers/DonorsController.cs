@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SimpleApp.DataLayer;
 using SimpleApp.DataLayer.Model;
 using SimpleApp.Ultilities;
 
@@ -51,7 +50,7 @@ namespace SimpleApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Hospital,DOB,Sex,OrganType,DeathDateTime,Status,Comments")] Donor donor)
+        public ActionResult Create(Donor donor)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +82,7 @@ namespace SimpleApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Hospital,DOB,Sex,OrganType,DeathDateTime,Status,Comments")] Donor donor)
+        public ActionResult Edit(Donor donor)
         {
             if (ModelState.IsValid)
             {

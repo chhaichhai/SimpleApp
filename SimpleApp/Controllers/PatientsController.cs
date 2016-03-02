@@ -50,7 +50,7 @@ namespace SimpleApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,DOB,Sex,Insurance,CaliforniaResident,EmploymentStatus")] Patient patient)
+        public ActionResult Create(Patient patient)
         {
             //throw new NullReferenceException();
             if (ModelState.IsValid)
@@ -83,7 +83,7 @@ namespace SimpleApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,DOB,Sex,Insurance,CaliforniaResident,EmploymentStatus")] Patient patient)
+        public ActionResult Edit(Patient patient)
         {
             if (ModelState.IsValid)
             {
