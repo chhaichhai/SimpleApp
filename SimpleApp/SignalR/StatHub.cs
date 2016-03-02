@@ -7,7 +7,7 @@ using Microsoft.AspNet.SignalR;
 using SimpleApp.Core.Concrete;
 using SimpleApp.Core.Services;
 
-namespace SimpleApp.Controllers
+namespace SimpleApp.SignalR
 {
     [Authorize]
     public class StatHub : Hub

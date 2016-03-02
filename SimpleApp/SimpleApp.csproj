@@ -258,7 +258,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DonorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\StatHub.cs" />
+    <Compile Include="SignalR\StatHub.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
@@ -323,7 +323,6 @@
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\search.js" />
-    <Content Include="Scripts\stathub.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -403,7 +402,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\shared.ts" />
+    <TypeScriptCompile Include="Scripts\typescripts\stathub.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\signalr\signalr.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
