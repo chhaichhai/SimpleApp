@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using SimpleApp.DataLayer.Model;
+using SimpleApp.Models;
 using SimpleApp.Ultilities;
 
 namespace SimpleApp.Controllers
@@ -30,13 +32,14 @@ namespace SimpleApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Donor donor = db.Donors.Find(id);
+
             if (donor == null)
             {
                 return HttpNotFound();
             }
             donor.AuditLogs = db.AuditLog.Where(i => i.RecordId == donor.Id.ToString()).OrderByDescending(x => x.EventDateUTC).ToList();
 
-            return View(donor);
+            return View(Mapper.Map<DonorVM>(donor));
         }
 
         // GET: Donors/Create
@@ -59,7 +62,7 @@ namespace SimpleApp.Controllers
                 return RedirectToAction(Constant.Actions.Index);
             }
 
-            return View(donor);
+            return View(Mapper.Map<DonorVM>(donor));
         }
 
         // GET: Donors/Edit/5
@@ -74,7 +77,7 @@ namespace SimpleApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(donor);
+            return View(Mapper.Map<DonorVM>(donor));
         }
 
         // POST: Donors/Edit/5
@@ -90,7 +93,7 @@ namespace SimpleApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction(Constant.Actions.Index);
             }
-            return View(donor);
+            return View(Mapper.Map<DonorVM>(donor));
         }
 
         // GET: Donors/Delete/5
@@ -105,7 +108,7 @@ namespace SimpleApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(donor);
+            return View(Mapper.Map<DonorVM>(donor));
         }
 
         // POST: Donors/Delete/5

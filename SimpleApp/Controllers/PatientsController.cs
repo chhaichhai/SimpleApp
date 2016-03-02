@@ -5,7 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using AutoMapper;
 using SimpleApp.DataLayer.Model;
+using SimpleApp.Models;
 using SimpleApp.Ultilities;
 
 namespace SimpleApp.Controllers
@@ -36,7 +38,7 @@ namespace SimpleApp.Controllers
 
             patient.AuditLogs = db.AuditLog.Where(i => i.RecordId == patient.Id.ToString()).OrderByDescending(x => x.EventDateUTC).ToList();
 
-            return View(patient);
+            return View(Mapper.Map<PatientVM>(patient));
         }
 
         // GET: Patients/Create
@@ -60,7 +62,7 @@ namespace SimpleApp.Controllers
                 return RedirectToAction(Constant.Actions.Index);
             }
 
-            return View(patient);
+            return View(Mapper.Map<PatientVM>(patient));
         }
 
         // GET: Patients/Edit/5
@@ -75,7 +77,8 @@ namespace SimpleApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(patient);
+
+            return View(Mapper.Map<PatientVM>(patient));
         }
 
         // POST: Patients/Edit/5
@@ -91,7 +94,7 @@ namespace SimpleApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction(Constant.Actions.Index);
             }
-            return View(patient);
+            return View(Mapper.Map<PatientVM>(patient));
         }
 
         // GET: Patients/Delete/5
@@ -106,7 +109,7 @@ namespace SimpleApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(patient);
+            return View(Mapper.Map<PatientVM>(patient));
         }
 
         // POST: Patients/Delete/5
