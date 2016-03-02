@@ -21,7 +21,7 @@ namespace SimpleApp.Controllers
         // GET: Donors
         public ActionResult Index()
         {
-            return View(db.Donors.ToList());
+            return View(Mapper.Map<List<DonorVM>>(db.Donors.ToList()));
         }
 
         // GET: Donors/Details/5

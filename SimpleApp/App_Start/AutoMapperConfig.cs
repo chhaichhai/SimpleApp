@@ -1,4 +1,5 @@
-﻿using SimpleApp.DataLayer.Model;
+﻿using System.Collections.Generic;
+using SimpleApp.DataLayer.Model;
 using SimpleApp.Models;
 
 namespace SimpleApp

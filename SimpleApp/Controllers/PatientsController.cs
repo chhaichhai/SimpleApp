@@ -20,7 +20,7 @@ namespace SimpleApp.Controllers
         // GET: Patients
         public ActionResult Index()
         {
-            return View(db.Patients.ToList());
+            return View(Mapper.Map<List<PatientVM>>(db.Patients.ToList()));
         }
 
         // GET: Patients/Details/5
