@@ -20,26 +20,26 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-
         <section id="loginForm">
             @using (Html.BeginForm(Constant.Actions.Login, Constant.Controllers.Account, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                   @* @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-md-offset-4 control-label" })*@ 
+                    <!-- Email -->
                     <div class="col-md-10 col-md-offset-4">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control",  @placeholder = "EMAIL" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.Email, new {id = "inputtext", @class = "form-control", placeholder = "EMAIL"})
+                        @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
                     </div>
                 </div>
+                    <!-- Password -->
                 <div class="form-group">
-                    @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
                     <div class="col-md-10 col-md-offset-4">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "PASSWORD" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @Html.PasswordFor(m => m.Password, new { id = "inputtext", @class = "form-control", placeholder = "PASSWORD"})
+                        @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
                     </div>
                 </div>
+                    <!-- Remember Me -->
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-10">
                         <div class="checkbox">

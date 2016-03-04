@@ -19,22 +19,22 @@
     @Html.AntiForgeryToken()
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <!-- Email -->
     <div class="form-group">
-        @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
         <div class="col-md-10 col-md-offset-4">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "EMAIL" })
+            @Html.TextBoxFor(m => m.Email, new {id = "inputtext", @class = "form-control", placeholder = "EMAIL"})
         </div>
     </div>
+    <!-- Password -->
     <div class="form-group">
-        @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
         <div class="col-md-10 col-md-offset-4">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "PASSWORD" })
+            @Html.PasswordFor(m => m.Password, new {id = "inputtext", @class = "form-control", placeholder = "PASSWORD"})
         </div>
     </div>
+    <!-- Confirm Password-->
     <div class="form-group">
-        @*@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })*@
         <div class="col-md-10 col-md-offset-4">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "CONFIRM PASSWORD" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { id = "inputtext", @class = "form-control", placeholder = "CONFIRM PASSWORD" })
         </div>
     </div>
     <div class="form-group">
