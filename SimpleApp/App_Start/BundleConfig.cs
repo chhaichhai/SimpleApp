@@ -24,14 +24,16 @@ namespace SimpleApp
                       "~/lib/bootstrap/dist/js/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+              "~/lib/angular/angular.js"
+              ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/lib/bootstrap/dist/css/bootstrap.css",
                       "~/lib/Font-Awesome/css/font-awesome.css",
                       "~/Content/shared.css",
                       "~/Content/sharedLess.css",
-                      "~/Content/mexins.css",
-                      "~/Content/variables.css",
-                      "~/Content/site.css"));
+                      "~/Content/variables.css"));
         }
     }
 }

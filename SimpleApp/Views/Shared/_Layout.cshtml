@@ -35,13 +35,13 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>@Html.ActionLink("Patients", Constant.Actions.Index, Constant.Controllers.Patients)</li>
                             <li>@Html.ActionLink("Donors", Constant.Actions.Index, Constant.Controllers.Donors)</li>
-                            <li role="separator" class="divider"></li>
-                            <li>
+                            @*<li role="separator" class="divider"></li>*@
+                            @*<li>
                                 <div class="form-group has-feedback">
                                     <input id="searchcase" type="text" class="form-control" placeholder="Search" />
                                     <i class="glyphicon glyphicon-search form-control-feedback"></i>
                                 </div>
-                            </li>
+                            </li>*@
                         </ul>
                     </li>
                     <li>@Html.ActionLink("New Patient", Constant.Actions.Create, Constant.Controllers.Patients)</li>
