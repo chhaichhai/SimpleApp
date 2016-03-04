@@ -15,7 +15,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using SimpleApp.Core.Services;
+using SimpleApp.DataLayer.Repositories;
 
 namespace SimpleApp.DependencyResolution {
     using Core.Concrete;
@@ -33,8 +33,7 @@ namespace SimpleApp.DependencyResolution {
 					//scan.With(new ControllerConvention());
      //           });
             //For<IExample>().Use<Example>();
-            For<ITestMessage>().Use<PrintMessage>();
-            For<IDbContext>().Use<PatientDbContext>();
+            For<IRepository>().Use<PatientRepository>();
         }
 
         #endregion

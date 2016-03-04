@@ -16,6 +16,11 @@ namespace SimpleApp.Controllers
     [Authorize]
     public class DonorsController : Controller
     {
+        public DonorsController()
+        {
+            
+        }
+
         private DataLayer.SimpleApp db = new DataLayer.SimpleApp();
 
         // GET: Donors

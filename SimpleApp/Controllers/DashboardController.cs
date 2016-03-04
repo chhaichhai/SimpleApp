@@ -11,18 +11,14 @@ namespace SimpleApp.Controllers
     [Authorize]
     public class DashboardController : Controller
     {
-        private readonly ITestMessage _message;
-
-        public DashboardController(ITestMessage message)
+        public DashboardController()
         {
-            _message = message;
         }
 
         // GET: Message
-        public ActionResult Index(MessageModel model)
+        public ActionResult Index()
         {
-            model.TestMessage = _message.GetMessage("Chhai", "18");
-            return View(model);
+            return View();
         }
     }
 }

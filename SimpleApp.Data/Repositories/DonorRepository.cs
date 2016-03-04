@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using SimpleApp.Core.Services;
 using SimpleApp.DataLayer.Model;
 
-namespace SimpleApp.Core.Concrete
+namespace SimpleApp.DataLayer.Repositories
 {
-    public class DonorDbContext : IDbContext
+    public class DonorRepository : IRepository
     {
         private DataLayer.SimpleApp db = new DataLayer.SimpleApp();
         private readonly DbSet<Donor> _donors;
 
-        public DonorDbContext()
+        public DonorRepository()
         {
             _donors = db.Donors;
         }

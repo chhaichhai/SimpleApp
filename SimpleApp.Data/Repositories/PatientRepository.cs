@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using SimpleApp.Core.Services;
+
 using SimpleApp.DataLayer.Model;
 
-namespace SimpleApp.Core.Concrete
+namespace SimpleApp.DataLayer.Repositories
 {
-    public class PatientDbContext : IDbContext
+    public class PatientRepository : IRepository
     {
-        private DataLayer.SimpleApp db = new DataLayer.SimpleApp();
+        private SimpleApp db = new SimpleApp();
         private readonly DbSet<Patient> _patients;
 
-        public PatientDbContext()
+        public PatientRepository()
         {
             _patients = db.Patients;
         }

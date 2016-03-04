@@ -79,11 +79,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\DonorDbContext.cs" />
-    <Compile Include="Concrete\PatientDbContext.cs" />
     <Compile Include="Concrete\PrintMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IDbContext.cs" />
     <Compile Include="Services\ITestMessage.cs" />
   </ItemGroup>
   <ItemGroup>
