@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using SimpleApp.Helpers.Enum;
+using SimpleApp.Ultilities.Enum;
 using TrackerEnabledDbContext.Common.Models;
 
 namespace SimpleApp.Models

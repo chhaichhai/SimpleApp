@@ -1,5 +1,5 @@
 ﻿
-namespace SimpleApp.Helpers.Enum
+namespace SimpleApp.Ultilities.Enum
 {
     public enum SexType
     {

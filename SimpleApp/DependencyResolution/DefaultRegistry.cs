@@ -15,6 +15,8 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using SimpleApp.Core.Services;
+using SimpleApp.DataLayer.Model;
 using SimpleApp.DataLayer.Repositories;
 
 namespace SimpleApp.DependencyResolution {
@@ -26,14 +28,10 @@ namespace SimpleApp.DependencyResolution {
         #region Constructors and Destructors
 
         public DefaultRegistry() {
-     //       Scan(
-     //           scan => {
-     //               scan.TheCallingAssembly();
-     //               scan.WithDefaultConventions();
-					//scan.With(new ControllerConvention());
-     //           });
-            //For<IExample>().Use<Example>();
-            For<IRepository>().Use<PatientRepository>();
+
+            For<IRepository<Donor>>().Use<DonorRepository>();
+            For<IRepository<Patient>>().Use<PatientRepository>();
+            For<IService<Donor>>().Use<DonorService>();
         }
 
         #endregion

@@ -273,7 +273,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Helpers\Enum\SexType.cs" />
+    <Compile Include="Ultilities\Enum\SexType.cs" />
     <Compile Include="Models\DonorVM.cs" />
     <Compile Include="Models\PatientVM.cs" />
     <Compile Include="Ultilities\Constant.cs" />
@@ -407,6 +407,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -7,7 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using SimpleApp.Core.Services;
 using SimpleApp.DataLayer.Model;
+using SimpleApp.DataLayer.Repositories;
 using SimpleApp.Models;
 using SimpleApp.Ultilities;
 
@@ -16,37 +18,41 @@ namespace SimpleApp.Controllers
     [Authorize]
     public class DonorsController : Controller
     {
-        public DonorsController()
-        {
-            
-        }
+        #region Private Members
 
-        private DataLayer.SimpleApp db = new DataLayer.SimpleApp();
+        private readonly IService<Donor> _donorService;
+
+        #endregion
+
+        #region Constructor
+
+        public DonorsController(IService<Donor> donorService)
+        {
+            _donorService = donorService;
+        }
+        #endregion
+
+        #region Index
 
         // GET: Donors
         public ActionResult Index()
         {
-            return View(Mapper.Map<List<DonorVM>>(db.Donors.ToList()));
+            return View(Mapper.Map<List<DonorVM>>(_donorService.GetAllRecords()));
         }
+
+        #endregion
+
+        #region Details
 
         // GET: Donors/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donor donor = db.Donors.Find(id);
-
-            if (donor == null)
-            {
-                return HttpNotFound();
-            }
-            donor.AuditLogs = db.AuditLog.Where(i => i.RecordId == donor.Id.ToString()).OrderByDescending(x => x.EventDateUTC).ToList();
-
-            return View(Mapper.Map<DonorVM>(donor));
+            return View(Mapper.Map<DonorVM>(_donorService.FindById(id)));
         }
 
+        #endregion
+
+        #region Create
         // GET: Donors/Create
         public ActionResult Create()
         {
@@ -54,66 +60,49 @@ namespace SimpleApp.Controllers
         }
 
         // POST: Donors/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Donor donor)
         {
             if (ModelState.IsValid)
             {
-                db.Donors.Add(donor);
-                db.SaveChanges();
+                _donorService.Add(donor);
                 return RedirectToAction(Constant.Actions.Index);
             }
 
             return View(Mapper.Map<DonorVM>(donor));
         }
 
+        #endregion
+
+        #region Edit
         // GET: Donors/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donor donor = db.Donors.Find(id);
-            if (donor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(Mapper.Map<DonorVM>(donor));
+            return View(Mapper.Map<DonorVM>(_donorService.FindById(id)));
         }
 
         // POST: Donors/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Donor donor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(donor).State = EntityState.Modified;
-                db.SaveChanges();
+                _donorService.Update(donor);
                 return RedirectToAction(Constant.Actions.Index);
             }
             return View(Mapper.Map<DonorVM>(donor));
         }
 
+        #endregion
+
+        #region Delete
+
         // GET: Donors/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Donor donor = db.Donors.Find(id);
-            if (donor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(Mapper.Map<DonorVM>(donor));
+            return View(Mapper.Map<DonorVM>(_donorService.FindById(id)));
         }
 
         // POST: Donors/Delete/5
@@ -121,19 +110,10 @@ namespace SimpleApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Donor donor = db.Donors.Find(id);
-            db.Donors.Remove(donor);
-            db.SaveChanges();
+            _donorService.Delete(id);
             return RedirectToAction(Constant.Actions.Index);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        #endregion
     }
 }

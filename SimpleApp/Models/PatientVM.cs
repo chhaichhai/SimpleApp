@@ -2,9 +2,8 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SimpleApp.Helpers.Enum;
+using SimpleApp.Ultilities.Enum;
 using TrackerEnabledDbContext.Common.Models;
-using SexType = SimpleApp.DataLayer.Model.SexType;
 
 namespace SimpleApp.Models
 {
