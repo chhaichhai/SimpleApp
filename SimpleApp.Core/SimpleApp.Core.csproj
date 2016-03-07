@@ -81,10 +81,8 @@
   <ItemGroup>
     <Compile Include="Concrete\DonorService.cs" />
     <Compile Include="Concrete\PatientService.cs" />
-    <Compile Include="Concrete\PrintMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IService.cs" />
-    <Compile Include="Services\ITestMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
