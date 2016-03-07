@@ -29,9 +29,13 @@ namespace SimpleApp.DependencyResolution {
 
         public DefaultRegistry() {
 
+            //Repositories
             For<IRepository<Donor>>().Use<DonorRepository>();
             For<IRepository<Patient>>().Use<PatientRepository>();
+
+            //Services
             For<IService<Donor>>().Use<DonorService>();
+            For<IService<Patient>>().Use<PatientService>();
         }
 
         #endregion

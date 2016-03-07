@@ -8,6 +8,9 @@ using TrackerEnabledDbContext.Common.Models;
 
 namespace SimpleApp.Core.Concrete
 {
+    /// <summary>
+    /// This class implements IService to provide communication to the Donor repository
+    /// </summary>
     public class DonorService : IService<Donor>
     {
         #region Private Members
@@ -30,6 +33,7 @@ namespace SimpleApp.Core.Concrete
         /// Add a new donor 
         /// </summary>
         /// <param name="donor"></param>
+        /// <exception cref="ArgumentNullException">Thrown when donor is null</exception>
         public void Add(Donor donor)
         {
             if(donor == null) throw new ArgumentNullException(nameof(donor));
@@ -41,6 +45,7 @@ namespace SimpleApp.Core.Concrete
         /// Update donor record
         /// </summary>
         /// <param name="donor"></param>
+        /// <exception cref="ArgumentNullException">Thrown when donor is null</exception>
         public void Update(Donor donor)
         {
             if (donor == null) throw new ArgumentNullException(nameof(donor));
@@ -52,6 +57,7 @@ namespace SimpleApp.Core.Concrete
         /// Delete donor record based on id
         /// </summary>
         /// <param name="id"></param>
+        /// <exception cref="ArgumentNullException">Thrown when id is null</exception>
         public void Delete(int? id)
         {
             if(id == null) throw new ArgumentNullException("Unable to remove " + nameof(id));
@@ -69,6 +75,7 @@ namespace SimpleApp.Core.Concrete
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException">Thrown when id is null</exception>
         public Donor FindById(int? id)
         {
             if (id == null) throw new ArgumentNullException(nameof(id));
@@ -96,6 +103,8 @@ namespace SimpleApp.Core.Concrete
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException">Thrown when id is null</exception>
+        /// <exception cref="ArgumentNullException">Thrown when donor is null</exception>
         public IEnumerable<AuditLog> GetAuditLogsById(int? id)
         {
             //Null id
@@ -105,7 +114,8 @@ namespace SimpleApp.Core.Concrete
 
             //Null donor
             if (donor == null) throw new ArgumentNullException(nameof(donor));
-            
+
+            //Return the query as list
             return _donorRepository.GetAuditLogsById(id).ToList();
         }
 

@@ -8,6 +8,10 @@ using TrackerEnabledDbContext.Common.Models;
 
 namespace SimpleApp.DataLayer.Repositories
 {
+    /// <summary>
+    /// This class implements IRepository and IDisposable
+    /// Provide data access to Donor repository
+    /// </summary>
     public class DonorRepository : IRepository<Donor>, IDisposable
     {
         #region Private Members
@@ -41,7 +45,8 @@ namespace SimpleApp.DataLayer.Repositories
         /// Find Donor record by id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns></returns>        
+        /// <exception cref="ArgumentNullException">Thrown when donor is null</exception>
         public Donor FindById(int? id)
         {
             Donor donor = _donors.Find(id);

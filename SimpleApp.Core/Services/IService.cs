@@ -4,6 +4,10 @@ using TrackerEnabledDbContext.Common.Models;
 
 namespace SimpleApp.Core.Services
 {
+    /// <summary>
+    /// IService interface
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IService<T>
     {
         /// <summary>

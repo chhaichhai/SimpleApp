@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
+using SimpleApp.Core.Services;
 using SimpleApp.DataLayer.Model;
 using SimpleApp.Models;
 using SimpleApp.Ultilities;
@@ -15,31 +16,40 @@ namespace SimpleApp.Controllers
     [Authorize]
     public class PatientsController : Controller
     {
-        private DataLayer.SimpleApp db = new DataLayer.SimpleApp();
+        #region Private Members
 
+        private readonly IService<Patient> _patientService;
+
+        #endregion
+
+        #region Constructor
+
+        public PatientsController(IService<Patient> patientService)
+        {
+            _patientService = patientService;
+        }
+
+        #endregion
+
+        #region Index
         // GET: Patients
         public ActionResult Index()
         {
-            return View(Mapper.Map<List<PatientVM>>(db.Patients.ToList()));
+            return View(Mapper.Map<List<PatientVM>>(_patientService.GetAllRecords()));
         }
 
+        #endregion
+
+        #region Details
         // GET: Patients/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
-            {
-                return HttpNotFound();
-            }
-
-            patient.AuditLogs = db.AuditLog.Where(i => i.RecordId == patient.Id.ToString()).OrderByDescending(x => x.EventDateUTC).ToList();
-
-            return View(Mapper.Map<PatientVM>(patient));
+            return View(Mapper.Map<PatientVM>(_patientService.FindById(id)));
         }
+
+        #endregion
+
+        #region Create
 
         // GET: Patients/Create
         public ActionResult Create()
@@ -48,68 +58,50 @@ namespace SimpleApp.Controllers
         }
 
         // POST: Patients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Patient patient)
         {
-            //throw new NullReferenceException();
             if (ModelState.IsValid)
             {
-                db.Patients.Add(patient);
-                db.SaveChanges();
+                _patientService.Add(patient);
                 return RedirectToAction(Constant.Actions.Index);
             }
 
             return View(Mapper.Map<PatientVM>(patient));
         }
 
+        #endregion
+
+        #region Edit
+
         // GET: Patients/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(Mapper.Map<PatientVM>(patient));
+            return View(Mapper.Map<PatientVM>(_patientService.FindById(id)));
         }
 
         // POST: Patients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Patient patient)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(patient).State = EntityState.Modified;
-                db.SaveChanges();
+                _patientService.Update(patient);
                 return RedirectToAction(Constant.Actions.Index);
             }
             return View(Mapper.Map<PatientVM>(patient));
         }
 
+        #endregion
+
+        #region Delete
+
         // GET: Patients/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Patient patient = db.Patients.Find(id);
-            if (patient == null)
-            {
-                return HttpNotFound();
-            }
-            return View(Mapper.Map<PatientVM>(patient));
+            return View(Mapper.Map<PatientVM>(_patientService.FindById(id)));
         }
 
         // POST: Patients/Delete/5
@@ -117,19 +109,10 @@ namespace SimpleApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Patient patient = db.Patients.Find(id);
-            db.Patients.Remove(patient);
-            db.SaveChanges();
+            _patientService.Delete(id);
             return RedirectToAction(Constant.Actions.Index);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        #endregion
     }
 }
